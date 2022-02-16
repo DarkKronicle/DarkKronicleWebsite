@@ -8,12 +8,11 @@ import qs from "qs";
  * 
  * https://strapi.io/blog/build-a-blog-with-next-react-js-strapi
  */
- export function getStrapiURL(path = "") {
-    return `${
-        "https://cms.darkkronicle.com"
-    }${path}`;
+export function getStrapiURL(path = "") {
+    return `${"https://cms.darkkronicle.com"
+        }${path}`;
 }
-  
+
 /**
 * Helper to make GET requests to Strapi API endpoints
 * @param {string} path Path of the API route
@@ -24,21 +23,21 @@ import qs from "qs";
 export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
     // Merge default and user options
     const mergedOptions = {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      ...options,
+        headers: {
+            "Content-Type": "application/json",
+        },
+        ...options,
     };
-  
+
     // Build request URL
     const queryString = qs.stringify(urlParamsObject);
     const requestUrl = `${getStrapiURL(
-      `/api${path}${queryString ? `?${queryString}` : ""}`
+        `/api${path}${queryString ? `?${queryString}` : ""}`
     )}`;
-  
+
     // Trigger API call
     const response = await fetch(requestUrl, mergedOptions);
-  
+
     // Handle response
     if (!response.ok) {
         console.error(response.statusText);
@@ -49,7 +48,7 @@ export async function fetchAPI(path, urlParamsObject = {}, options = {}) {
 }
 
 export async function getPosts() {
-    const pagesRes = await fetchAPI("/posts", {populate: "*"});
+    const pagesRes = await fetchAPI("/posts", { populate: "*" });
     return pagesRes;
 }
 
@@ -94,14 +93,14 @@ export async function getCategorySlugs(category) {
         filters: {
             category: {
                 slug: {
-                    $eq: category 
+                    $eq: category
                 }
             }
         },
     });
     const elementSlugs = pages.data.map((element) => {
-        return  {
-            params : {
+        return {
+            params: {
                 slug: element.attributes.slug,
             }
         };
