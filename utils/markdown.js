@@ -1,4 +1,4 @@
-import {unified} from 'unified';
+import { unified } from 'unified';
 
 import remarkParse from 'remark-parse';
 import remarkMath from "remark-math";
@@ -11,14 +11,14 @@ import rehypeStringify from 'rehype-stringify'
 
 
 export default async function markdownToHtml(markdown) {
-  const result = await unified()
-    .use(remarkParse)
-    .use(remarkMath)
-    .use(remarkGfm)
-    .use(remarkToc)
-    .use(remarkRehype)
-    .use(rehypeMathjax)
-    .use(rehypeStringify)
-    .process(markdown);
-  return String(result);
+    const result = await unified()
+        .use(remarkParse)
+        .use(remarkMath)
+        .use(remarkGfm)
+        .use(remarkToc)
+        .use(remarkRehype)
+        .use(rehypeMathjax)
+        .use(rehypeStringify)
+        .process(markdown);
+    return String(result);
 }

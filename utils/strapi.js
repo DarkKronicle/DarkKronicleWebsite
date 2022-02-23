@@ -70,6 +70,23 @@ export async function getPost(category, slug) {
     return pageArray.length > 0 ? pageArray[0] : null;
 }
 
+export async function getLinks() {
+    const linksRes = await fetchAPI("/links");
+    return linksRes;
+}
+
+export async function getLink(slug) {
+    const linkRes = await fetchAPI("/links", {
+        filters: {
+            slug: {
+                $eq: slug
+            },
+        }
+    });
+    const linkArray = linkRes.data;
+    return linkArray.length > 0 ? linkArray[0] : null;
+}
+
 export async function getCategories() {
     const categoriesRes = await fetchAPI("/categories");
     return categoriesRes;

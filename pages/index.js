@@ -14,8 +14,19 @@ export default function Home({ recent }) {
         return <Update key={page.id} update={page.attributes} />
     });
 
+    if (typeof window !== "undefined") {
+        window.counter = function() {
+        return {
+          count: 0,
+          inc() {
+            this.count += 1;
+          }
+        };
+      };
+    }
+
     return (
-        <div className="bg-gradient-to-l from-fuchsia-800 to-violet-900 flex flex-col items-center min-h-screen">
+        <div className="flex flex-col items-center min-h-screen">
             <Head>
                 <title>DarkKronicle</title>
                 <meta name="description" content="Cool stuff" />
@@ -23,7 +34,7 @@ export default function Home({ recent }) {
             </Head>
 
             <Header />
-            <main>
+            <main className="flex w-full bg-gradient-to-b from-fuchsia-800 to-violet-900 justify-center">
                 <div className="flex flex-col px-4 lg:px-24 py-10 lg:mb-24">
                     <h1 className="text-4xl font-bold mt-5 mb-5 text-white">
                         DarkKronicle's <i>Brand Stinking New</i> Website
@@ -50,8 +61,6 @@ export default function Home({ recent }) {
                     </div>
                 </div>
             </main>
-
-
 
             <main className="md:p-8 bg-tdark min-h-screen w-full text-slate-200">
                 <div className="grid grid-cols-1 gap-20 md:grid-cols-2 gap-5 justify-items-center mx-5 lg:mx-20 flex-auto">
