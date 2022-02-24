@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHamburger } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
 
 export default function Header() {
@@ -15,11 +13,13 @@ export default function Header() {
     return (
         <>
         <header className="flex w-full h-15 bg-tdark flex-wrap shadow-md justify-start items-center p-3 text-sm" x-data="{ open: false }">
-            <div className="text-slate-300 hover:text-black mr-1 rounded-md bg-gray-700 p-1 px-3 shadow-md hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta">
-                DarkKronicle
-            </div>
+            <Link href="/">
+                <div className="text-slate-300 hover:text-black mr-1 rounded-md bg-gray-700 p-1 px-3 shadow-md hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta">
+                    DarkKronicle
+                </div>
+            </Link>
             <div className="hidden lg:inline-block">
-                <HeaderButton name="Blog" link="/blog" />
+                <HeaderButton name="Posts" link="/posts" />
                 <HeaderButton name="Wiki" link="/wiki" />
             </div>
             <div className="flex-1"/>

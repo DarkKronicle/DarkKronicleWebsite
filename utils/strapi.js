@@ -77,6 +77,7 @@ export async function getLinks() {
 
 export async function getLink(slug) {
     const linkRes = await fetchAPI("/links", {
+        populate: "*",
         filters: {
             slug: {
                 $eq: slug

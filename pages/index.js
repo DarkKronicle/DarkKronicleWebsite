@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Update from '../components/Update'
+import Post from '../components/Post'
 import Header from '../components/Header'
 
 import { getRecentPosts } from '../utils/strapi';
@@ -11,19 +11,8 @@ export default function Home({ recent }) {
     const data = recent.data;
 
     const jsxNews = data.map((page) => {
-        return <Update key={page.id} update={page.attributes} />
+        return <Post key={page.id} update={page.attributes} />
     });
-
-    if (typeof window !== "undefined") {
-        window.counter = function() {
-        return {
-          count: 0,
-          inc() {
-            this.count += 1;
-          }
-        };
-      };
-    }
 
     return (
         <div className="flex flex-col items-center min-h-screen">
@@ -48,7 +37,7 @@ export default function Home({ recent }) {
                         </div>
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                             {jsxNews}
-                            <Link href="/blog">
+                            <Link href="/posts">
                                 <a className="group p-6 lg:max-w-sm max-h-48 bg-tdark rounded-xl shadow-lg flex items-center space-x-4 hover:bg-gradient-to-tr hover:from-tdark hover:to-tlmagenta">
                                     <div>
                                         <div className="text-xl font-medium text-white">
