@@ -52,6 +52,11 @@ export async function getPosts() {
     return pagesRes;
 }
 
+export async function getQRCodes() {
+    const qrcodesRes = await fetchAPI("/qr-codes", { populate : "*" , pagination: { limit : 250 }});
+    return qrcodesRes;
+}
+
 export async function getPost(category, slug) {
     const pagesRes = await fetchAPI("/posts", {
         populate: "*",
