@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Head from 'next/head';
 
 import { getCategories, getPost, getCategorySlugs } from '../../../utils/strapi';
@@ -18,14 +17,14 @@ export default function UpdatePage({ post, rendered }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-            <div className="bg-gradient-to-l from-fuchsia-800 to-violet-900 min-w-full justify-center items-center">
-                <h1 className="text-4xl md:text-6xl font-bold mt-5 mb-5 text-center text-white mt-10 mb-10">{post.attributes.title}</h1>
-                <h3 className="text-1xl md:text-2xl text-slate-300 mt-5 mb-5 text-center text-white mt-10 mb-10">{post.attributes.description}</h3>
+            <div className="items-center justify-center min-w-full bg-gradient-to-l from-fuchsia-800 to-violet-900">
+                <h1 className="mt-10 mb-10 text-4xl font-bold text-center text-white md:text-6xl">{post.attributes.title}</h1>
+                <h3 className="mt-10 mb-10 text-center text-1xl md:text-2xl text-slate-300">{post.attributes.description}</h3>
             </div>
-            <main className="flex flex-col items-center flex-1 mx-5 md:px-20 py-10 max-w-5xl m-auto">
-                <article className="prose prose-invert prose-sm md:prose-base lg:prose-lg max-w-none">
+            <main className="flex flex-col items-center flex-1 max-w-5xl py-10 m-auto mx-5 md:px-20">
+                <article className="prose-sm prose prose-invert md:prose-base lg:prose-lg max-w-none">
                     <div className={styles.post}>
-                        <div className="text-slate-300 overflow-hidden">
+                        <div className="overflow-hidden text-slate-300">
                             {parse(rendered.body)}
                         </div>
                     </div>
@@ -43,7 +42,7 @@ export async function getStaticPaths() {
     for (const c of categories.data) {
         const p = await getCategorySlugs(c.attributes.slug);
         for (const path of p) {
-            paths.push('/posts/' + c.attributes.slug + '/' + path);
+            paths.push('/posts/' + c.attributes.slug + '/' + path.params.slug);
         }
     }
     return {

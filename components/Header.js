@@ -12,9 +12,9 @@ export default function Header() {
 
     return (
         <>
-        <header className="flex w-full h-15 bg-tdark flex-wrap shadow-md justify-start items-center p-3 text-sm" x-data="{ open: false }">
+        <header className="flex flex-wrap items-center justify-start w-full p-3 text-sm shadow-md h-15 bg-tdark" x-data="{ open: false }">
             <Link href="/">
-                <div className="text-slate-300 hover:text-black mr-1 rounded-md bg-gray-700 p-1 px-3 shadow-md hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta">
+                <div className="p-1 px-3 mr-1 bg-gray-700 rounded-md shadow-md text-slate-300 hover:text-black hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta">
                     DarkKronicle
                 </div>
             </Link>
@@ -42,12 +42,12 @@ export default function Header() {
                 }   w-screen lg:hidden bg-slate-800 p-3`}
             >
                 <Link href='/'>
-                    <a className='block w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta'>
+                    <a className='items-center justify-center block w-full px-3 py-2 font-bold text-white rounded hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta'>
                         Home
                     </a>
                 </Link>
                 <Link href='/'>
-                    <a className='block w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta'>
+                    <a className='items-center justify-center block w-full px-3 py-2 font-bold text-white rounded hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta'>
                         Wiki
                     </a>
                 </Link>
@@ -59,7 +59,7 @@ export default function Header() {
 export function HeaderButton({ name, link }) {
     return (
         <Link href={link}>
-            <div className="block inline-block text-slate-300 hover:text-black mr-1 rounded-md bg-gray-700 p-1 px-3 shadow-md hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta">
+            <div className="inline-block p-1 px-3 mr-1 bg-gray-700 rounded-md shadow-md text-slate-300 hover:text-black hover:bg-gradient-to-tr hover:from-gray-700 hover:to-tlmagenta">
                 {name}
             </div>
         </Link>

@@ -10,6 +10,7 @@ export default function Home({ recent }) {
 
     const data = recent.data;
 
+
     const jsxNews = data.map((page) => {
         return <Post key={page.id} update={page.attributes} />
     });
@@ -23,22 +24,22 @@ export default function Home({ recent }) {
             </Head>
 
             <Header />
-            <main className="flex w-full bg-gradient-to-b from-fuchsia-800 to-violet-900 justify-center">
-                <div className="flex flex-col px-4 lg:px-24 py-10 lg:mb-24">
-                    <h1 className="text-4xl font-bold mt-5 mb-5 text-white">
-                        DarkKronicle's <i>Brand Stinking New</i> Website
+            <main className="flex justify-center w-full h-fit bg-gradient-to-b from-fuchsia-800 to-violet-900">
+                <div className="flex flex-col px-4 py-10 lg:px-24 lg:mb-24">
+                    <h1 className="mt-5 mb-5 text-4xl font-bold text-white">
+                        DarkKronicle
                     </h1>
-                    <p className="text-xl mb-5 text-slate-300 mb-10">A website dedicated to all things DarkKronicle</p>
+                    <p className="mb-10 text-xl text-slate-300">A website dedicated to all things DarkKronicle</p>
                     <div className="items-center">
-                        <div className="w-full relative flex py-5 items-center">
+                        <div className="relative flex items-center w-full py-5">
                             <div className="flex-grow border-t border-slate-400"></div>
-                            <span className="flex-shrink mx-4 text-slate-50 text-xl">Recent Posts</span>
+                            <span className="flex-shrink mx-4 text-xl text-slate-50">Recent Posts</span>
                             <div className="flex-grow border-t border-slate-400"></div>
                         </div>
                         <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                             {jsxNews}
                             <Link href="/posts">
-                                <a className="group p-6 lg:max-w-sm max-h-48 bg-tdark rounded-xl shadow-lg flex items-center space-x-4 hover:bg-gradient-to-tr hover:from-tdark hover:to-tlmagenta">
+                                <a className="flex items-center p-6 space-x-4 shadow-lg group lg:max-w-sm max-h-48 bg-tdark rounded-xl hover:bg-gradient-to-tr hover:from-tdark hover:to-tlmagenta">
                                     <div>
                                         <div className="text-xl font-medium text-white">
                                             See more...
@@ -51,10 +52,10 @@ export default function Home({ recent }) {
                 </div>
             </main>
 
-            <main className="md:p-8 bg-tdark min-h-screen w-full text-slate-200">
-                <div className="grid grid-cols-1 gap-20 md:grid-cols-2 gap-5 justify-items-center mx-5 lg:mx-20 flex-auto">
+            <main className="w-full min-h-screen md:p-8 bg-tdark text-slate-200">
+                <div className="grid flex-auto grid-cols-1 gap-20 mx-5 md:grid-cols-2 justify-items-center lg:mx-20">
                     <div className="flex-1">
-                        <p className="lg:ml-24 prose prose-invert py-5 md:px-5 max-w-xl">
+                        <p className="max-w-xl py-5 prose lg:ml-24 prose-invert md:px-5">
                             <h1>About me</h1>
                             <p>
                                 Hey! I'm DarkKronicle! I'm a Java and Python developer (now with some small JS!). I really enjoy programming
@@ -72,16 +73,16 @@ export default function Home({ recent }) {
                             </p>
                         </p>
                     </div>
-                    <div className="lg:mr-24 bg-slate-800 flex-1 rounded-xl shadow-lg p-5 max-w-xl">
+                    <div className="flex-1 max-w-xl p-5 shadow-lg lg:mr-24 bg-slate-800 rounded-xl">
                         Woah cool stuff here! Heck yeah it is. Just going to type random stuff.
                         Hmm that is some randomness.
                     </div>
-                    <div className="lg:ml-24 bg-slate-800 flex-1 rounded-xl shadow-lg p-5 max-w-xl">
+                    <div className="flex-1 max-w-xl p-5 shadow-lg lg:ml-24 bg-slate-800 rounded-xl">
                         Woah cool stuff here! Heck yeah it is. Just going to type random stuff.
                         Hmm that is some randomness.
                     </div>
                     <div className="flex-1">
-                        <p className="lg:mr-24 prose prose-invert py-5 md:px-5 max-w-xl">
+                        <p className="max-w-xl py-5 prose lg:mr-24 prose-invert md:px-5">
                             <h1>Projects</h1>
                             <p>
                                 I have vastly improved my Java skills with some Minecraft mods. They started out rough, but after a lot

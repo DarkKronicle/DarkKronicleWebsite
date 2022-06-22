@@ -16,8 +16,8 @@ export default function RedirectPage({link}) {
         <meta name="description" content={link.attributes.description} />
     </Head>
     <Redirect>
-        <div className="group flex w-screen h-screen justify-center items-center bg-tdark space-x-4">
-            <div className="block text-slate-500 p-5 text-lg">
+        <div className="flex items-center justify-center w-screen h-screen space-x-4 group bg-tdark">
+            <div className="block p-5 text-lg text-slate-500">
                 {text}
                 <Link href={link.attributes.link}>
                     <button>
